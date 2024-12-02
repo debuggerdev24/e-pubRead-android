@@ -59,7 +59,7 @@ class BookshelfViewModel(application: Application) : AndroidViewModel(applicatio
                         Log.e("bookID", "addPublicationFromWeb: null che")
                     }
                 }
-            }, 3000)
+            }, 5000)
     }
 
     fun openPublication(

@@ -25,12 +25,15 @@ android {
         ndk.abiFilters.add("x86_64")
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+//        sourceCompatibility = JavaVersion.VERSION_1_8
+//        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
         isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+//        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = "11"
         freeCompilerArgs = freeCompilerArgs + "-opt-in=kotlin.RequiresOptIn"
     }
     buildFeatures {
