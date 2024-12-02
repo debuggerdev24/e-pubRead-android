@@ -1,13 +1,8 @@
-/*
- * Copyright 2021 Readium Foundation. All rights reserved.
- * Use of this source code is governed by the BSD-style license
- * available in the top-level LICENSE file of the project.
- */
-
 plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("plugin.parcelize")
+    id("maven-publish")
     alias(libs.plugins.ksp)
     alias(libs.plugins.compose.compiler)
 }
