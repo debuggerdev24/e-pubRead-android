@@ -43,23 +43,23 @@ class BookshelfViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     fun addPublicationFromWeb(url: AbsoluteUrl) {
-            val handler = Handler(Looper.getMainLooper())
-            app.bookshelf.addPublicationFromWeb(url)
+        val handler = Handler(Looper.getMainLooper())
+        app.bookshelf.addPublicationFromWeb(url)
 
-            // Use the handler to run the code with a 2-second delay
-            handler.postDelayed({
-                viewModelScope.launch {
-                    val addedBook = withContext(Dispatchers.IO) {
-                        app.bookRepository.getBookByUrl(url.toString())
-                    }
-
-                    if (addedBook != null) {
-                        openPublication(addedBook.id!!)
-                    } else{
-                        Log.e("bookID", "addPublicationFromWeb: null che")
-                    }
+        // Use the handler to run the code with a 2-second delay
+        handler.postDelayed({
+            viewModelScope.launch {
+                val addedBook = withContext(Dispatchers.IO) {
+                    app.bookRepository.getBookByUrl(url.toString())
                 }
-            }, 5000)
+
+                if (addedBook != null) {
+                    openPublication(addedBook.id!!)
+                } else {
+                    Log.e("bookID", "addPublicationFromWeb: null che")
+                }
+            }
+        }, 5000)
     }
 
     fun openPublication(

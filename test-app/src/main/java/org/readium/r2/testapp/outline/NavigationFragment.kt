@@ -37,8 +37,8 @@ class NavigationFragment : Fragment() {
     private lateinit var publication: Publication
     private lateinit var links: List<Link>
     private lateinit var navAdapter: NavigationAdapter
-    private var selectedLink: Link? = null  // Track the opened chapter
-    private var selectedPosition: Int = 3  // Assume 4th chapter (index 3) is initially opened, change as needed.
+    private var selectedLink: Link? = null // Track the opened chapter
+    private var selectedPosition: Int = 3 // Assume 4th chapter (index 3) is initially opened, change as needed.
 
     private var binding: FragmentListviewBinding by viewLifecycle()
 
@@ -69,7 +69,7 @@ class NavigationFragment : Fragment() {
         // Pass the selected position and link to the adapter
         navAdapter = NavigationAdapter(
             onLinkSelected = { link -> onLinkSelected(link) },
-            selectedLink = selectedLink,  // Highlight the initially opened chapter
+            selectedLink = selectedLink, // Highlight the initially opened chapter
             selectedPosition = selectedPosition
         )
 
@@ -107,7 +107,7 @@ class NavigationFragment : Fragment() {
                         val newSelectedLink = flatLinks.getOrNull(firstVisibleItemPosition)?.second
                         if (newSelectedLink != null) {
                             selectedLink = newSelectedLink
-                            selectedPosition = firstVisibleItemPosition  // Update the position
+                            selectedPosition = firstVisibleItemPosition // Update the position
                             navAdapter.selectedLink = selectedLink
                             navAdapter.selectedPosition = selectedPosition
                             navAdapter.notifyDataSetChanged()
@@ -119,7 +119,7 @@ class NavigationFragment : Fragment() {
         navAdapter.submitList(flatLinks)
 
         // After initializing the adapter, make sure the selected position is set correctly
-        highlightSelectedChapter(selectedPosition,flatLinks)
+        highlightSelectedChapter(selectedPosition, flatLinks)
     }
 
     private fun onLinkSelected(link: Link) {
@@ -170,7 +170,7 @@ class NavigationFragment : Fragment() {
 class NavigationAdapter(
     private val onLinkSelected: (Link) -> Unit,
     var selectedLink: Link?,
-    var selectedPosition: Int
+    var selectedPosition: Int,
 ) :
     ListAdapter<Pair<Int, Link>, NavigationAdapter.ViewHolder>(NavigationDiff()) {
 

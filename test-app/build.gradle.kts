@@ -66,17 +66,23 @@ dependencies {
 
     implementation(libs.kotlin.stdlib)
 
-    implementation(project(":readium:readium-shared"))
-    implementation(project(":readium:readium-streamer"))
-    implementation(project(":readium:readium-navigator"))
-    implementation(project(":readium:navigators:media:readium-navigator-media-audio"))
+//    implementation(project(":readium:readium-shared"))
+//    implementation(project(":readium:readium-streamer"))
+//    implementation(project(":readium:readium-navigator"))
+//    implementation(project(":readium:navigators:media:readium-navigator-media-audio"))
     implementation(project(":readium:navigators:media:readium-navigator-media-tts"))
-    // Only required if you want to support audiobooks using ExoPlayer.
+//    // Only required if you want to support audiobooks using ExoPlayer.
     implementation(project(":readium:adapters:exoplayer"))
-    implementation(project(":readium:readium-opds"))
-    implementation(project(":readium:readium-lcp"))
-    // Only required if you want to support PDF files using PDFium.
+//    implementation(project(":readium:readium-opds"))
+//    implementation(project(":readium:readium-lcp"))
+//    // Only required if you want to support PDF files using PDFium.
     implementation(project(":readium:adapters:pdfium"))
+
+    implementation("org.readium.kotlin-toolkit:readium-shared:3.0.0")
+    implementation("org.readium.kotlin-toolkit:readium-streamer:3.0.0")
+    implementation("org.readium.kotlin-toolkit:readium-navigator:3.0.0")
+    implementation("org.readium.kotlin-toolkit:readium-opds:3.0.0")
+    implementation("org.readium.kotlin-toolkit:readium-lcp:3.0.0")
 
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)

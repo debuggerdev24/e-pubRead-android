@@ -42,8 +42,6 @@ fun Activity.showSystemUi() {
             or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         )
 }
-
-/** Toggle fullscreen or immersive mode. */
 fun Activity.toggleSystemUi() {
     if (this.isSystemUiVisible()) {
         this.hideSystemUi()
@@ -51,24 +49,6 @@ fun Activity.toggleSystemUi() {
         this.showSystemUi()
     }
 }
-
-/** Set padding around view so that content doesn't overlap system UI */
-//fun View.padSystemUi(insets: WindowInsets, activity: AppCompatActivity) =
-//    WindowInsetsCompat.toWindowInsetsCompat(insets, this)
-//        // Actual insets are inexplicably wrong when a SearchView is expanded.
-//        .getInsetsIgnoringVisibility(WindowInsetsCompat.Type.systemBars()).apply {
-//            setPadding(
-//                left,
-//                top + activity.supportActionBar!!.height,
-//                right,
-//                bottom
-//            )
-//        }
-//
-///** Clear padding around view */
-//fun View.clearPadding() =
-//    setPadding(0, 0, 0, 0)
-
 fun View?.padSystemUi(activity: Activity?) {
     if (this == null) return
 
