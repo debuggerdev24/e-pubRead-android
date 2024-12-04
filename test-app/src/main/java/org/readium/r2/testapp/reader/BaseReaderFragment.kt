@@ -7,25 +7,13 @@
 package org.readium.r2.testapp.reader
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
-import androidx.core.view.MenuHost
-import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import org.readium.r2.lcp.lcpLicense
 import org.readium.r2.navigator.Navigator
-import org.readium.r2.navigator.preferences.Configurable
 import org.readium.r2.shared.ExperimentalReadiumApi
 import org.readium.r2.shared.publication.Locator
 import org.readium.r2.shared.publication.Publication
-import org.readium.r2.testapp.R
-import org.readium.r2.testapp.databinding.BottomSettingBinding
-import org.readium.r2.testapp.reader.preferences.MainPreferencesBottomSheetDialogFragment
 import org.readium.r2.testapp.utils.UserError
 
 /*
@@ -45,19 +33,19 @@ abstract class BaseReaderFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
 //        model.fragmentChannel.receive(this) { event ->
-////            fun toast(id: Int) {
-////                Toast.makeText(requireContext(), getString(id), Toast.LENGTH_SHORT).show()
-////            }
+// //            fun toast(id: Int) {
+// //                Toast.makeText(requireContext(), getString(id), Toast.LENGTH_SHORT).show()
+// //            }
 //
-////            when (event) {
-////                is ReaderViewModel.FragmentFeedback.BookmarkFailed -> toast(
-////                    R.string.bookmark_exists
-////                )
-////
-////                is ReaderViewModel.FragmentFeedback.BookmarkSuccessfullyAdded -> toast(
-////                    R.string.bookmark_added
-////                )
-////            }
+// //            when (event) {
+// //                is ReaderViewModel.FragmentFeedback.BookmarkFailed -> toast(
+// //                    R.string.bookmark_exists
+// //                )
+// //
+// //                is ReaderViewModel.FragmentFeedback.BookmarkSuccessfullyAdded -> toast(
+// //                    R.string.bookmark_added
+// //                )
+// //            }
 //        }
     }
 

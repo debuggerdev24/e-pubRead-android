@@ -1,15 +1,9 @@
 package org.readium.r2.testapp.reader
 
-import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.WindowManager
-import android.view.inputmethod.InputMethodManager
-import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.SearchView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -22,8 +16,6 @@ import org.readium.r2.shared.publication.Publication
 import org.readium.r2.shared.util.toUri
 import org.readium.r2.testapp.Application
 import org.readium.r2.testapp.R
-import org.readium.r2.testapp.data.BookRepository
-import org.readium.r2.testapp.data.db.AppDatabase
 import org.readium.r2.testapp.databinding.ActivityReaderBinding
 import org.readium.r2.testapp.drm.DrmManagementContract
 import org.readium.r2.testapp.drm.DrmManagementFragment
@@ -110,7 +102,6 @@ open class ReaderActivity : AppCompatActivity() {
         }
 
         binding.btnBookMark.setOnClickListener {
-
             if (isOutlineFragmentOpen) {
                 supportFragmentManager.popBackStack()
                 isOutlineFragmentOpen = false
@@ -125,14 +116,12 @@ open class ReaderActivity : AppCompatActivity() {
         binding.btnSetting.setOnClickListener {
             MainPreferencesBottomSheetDialogFragment()
                 .show(supportFragmentManager, "Settings")
-
         }
         binding.btnBookMark2.setOnClickListener {
             model.insertBookmark(navigator.currentLocator.value)
         }
 
         binding.btnSearch.setOnClickListener {
-
 //                // Create the SearchView dynamically
 //                val searchView = SearchView(this)
 //                searchView.layoutParams = LinearLayout.LayoutParams(
@@ -169,7 +158,7 @@ open class ReaderActivity : AppCompatActivity() {
 //                        searchView.clearFocus()
 //                        container.removeAllViews()
 //                    }
-            }
+        }
     }
 
 //    private fun connectSearch(menuSearch: MenuItem) {
@@ -232,7 +221,6 @@ open class ReaderActivity : AppCompatActivity() {
 //            addToBackStack(SEARCH_FRAGMENT_TAG)
 //        }
 //    }
-
 
     private fun createReaderFragment(readerData: ReaderInitData): BaseReaderFragment? {
         val readerClass: Class<out Fragment>? = when (readerData) {

@@ -22,7 +22,7 @@ abstract class ComposeBottomSheetDialogFragment(
         val context = requireContext()
         val composeView = ComposeView(context).apply {
             setContent {
-                    this@ComposeBottomSheetDialogFragment.Content()
+                this@ComposeBottomSheetDialogFragment.Content()
 //                AppTheme {
 //                    Surface {
 //                        this@ComposeBottomSheetDialogFragment.Content()

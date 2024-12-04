@@ -25,7 +25,7 @@ open class BookRepository(
 
     open suspend fun getBookByUrl(url: String): Book? {
         // Fetch a book by its URL (href)
-        val books = booksDao.getAllBooks().firstOrNull()  // Collect the Flow if it's Flow<List<Book>>
+        val books = booksDao.getAllBooks().firstOrNull() // Collect the Flow if it's Flow<List<Book>>
         return books?.firstOrNull { it.href == url }
     }
 

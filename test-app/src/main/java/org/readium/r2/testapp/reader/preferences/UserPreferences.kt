@@ -2,7 +2,6 @@
 
 package org.readium.r2.testapp.reader.preferences
 
-import org.readium.r2.navigator.preferences.TextAlign as ReadiumTextAlign
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -30,6 +29,7 @@ import org.readium.r2.navigator.preferences.PreferencesEditor
 import org.readium.r2.navigator.preferences.RangePreference
 import org.readium.r2.navigator.preferences.ReadingProgression
 import org.readium.r2.navigator.preferences.Spread
+import org.readium.r2.navigator.preferences.TextAlign as ReadiumTextAlign
 import org.readium.r2.navigator.preferences.Theme
 import org.readium.r2.navigator.preferences.withSupportedValues
 import org.readium.r2.shared.ExperimentalReadiumApi
@@ -47,7 +47,7 @@ import org.readium.r2.testapp.shared.views.SwitchItem
 
 @Composable
 fun UserPreferences(
-    model: UserPreferencesViewModel<*, *>
+    model: UserPreferencesViewModel<*, *>,
 ) {
     val editor by model.editor.collectAsState()
     UserPreferences(
@@ -59,7 +59,7 @@ fun UserPreferences(
 @Composable
 private fun <P : Configurable.Preferences<P>, E : PreferencesEditor<P>> UserPreferences(
     editor: E,
-    commit: () -> Unit
+    commit: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -135,7 +135,6 @@ private fun <P : Configurable.Preferences<P>, E : PreferencesEditor<P>> UserPref
         }
     }
 }
-
 
 @Composable
 private fun MediaUserPreferences(
@@ -281,7 +280,6 @@ private fun FixedLayoutUserPreferences(
     }
 }
 
-
 @Composable
 fun ReflowableUserPreferences(
     commit: () -> Unit,
@@ -308,7 +306,7 @@ fun ReflowableUserPreferences(
     theme: EnumPreference<Theme>,
     typeScale: RangePreference<Double>,
     verticalText: Preference<Boolean>,
-    wordSpacing: RangePreference<Double>
+    wordSpacing: RangePreference<Double>,
 ) {
     if (language != null || readingProgression != null || verticalText != null) {
         if (language != null) {
@@ -329,7 +327,6 @@ fun ReflowableUserPreferences(
     }
 
     if (theme != null || textColor != null || imageFilter != null) {
-
         if (textColor != null) {
             ColorItem(
                 title = "Text color",
@@ -377,7 +374,6 @@ fun ReflowableUserPreferences(
                 commit = commit
             )
         }
-
     }
 
     if (publisherStyles != null) {

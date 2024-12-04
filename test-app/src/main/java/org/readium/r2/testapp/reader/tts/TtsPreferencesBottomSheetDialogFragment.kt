@@ -15,7 +15,7 @@ import org.readium.r2.testapp.reader.preferences.UserPreferencesBottomSheetDialo
 import org.readium.r2.testapp.reader.preferences.UserPreferencesViewModel
 
 @OptIn(ExperimentalReadiumApi::class)
-class TtsPreferencesBottomSheetDialogFragment : UserPreferencesBottomSheetDialogFragment(){
+class TtsPreferencesBottomSheetDialogFragment : UserPreferencesBottomSheetDialogFragment() {
 
     private val viewModel: ReaderViewModel by activityViewModels()
 
